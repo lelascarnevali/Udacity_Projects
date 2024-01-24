@@ -69,7 +69,6 @@ This section should contain all the student deliverables for this project.
 
 * [Item1](www.item1.com) - Description of item
 * [Item2](www.item2.com) - Description of item
-* [Item3](www.item3.com) - Description of item
 
 Include all items used to build project.
 
