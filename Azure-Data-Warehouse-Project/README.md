@@ -32,46 +32,47 @@ Since the data from Divvy are anonymous, we have created fake rider and account 
     * Based on how many minutes the rider spends on a bike per month
 
 
-### Dependencies
+## Project Tasks
 
-In order to complete this project, you'll need to use these tools:
+### Task 1: Create your Azure resources
 
-* Access to Microsoft Azure.
-* Python to run the script to load data into a PostgreSQL database on Azure to simulate your OLTP data source
-* An editor to work with the Python and SQL scripts, like Visual Studio Code
+* Create an Azure Database for PostgreSQL.
+* Create an Azure Synapse workspace. 
+* Use the built-in serverless SQL pool and database within the Synapse workspace
 
-### Installation
+**Result**
 
-Step by step explanation of how to get a dev environment running.
+### Task 2: Design a star schema
 
-List out the steps
+You are being provided a relational schema that describes the data as it exists in PostgreSQL. In addition, you have been given a set of business requirements related to the data warehouse. You are being asked to design a star schema using fact and dimension tables.
 
-```
-Give an example here
-```
+**Result**
 
-## Testing
+<img src="images/dimensional-model.jpeg" alt="dimension model" width="1000">
 
-Explain the steps needed to run any automated tests
+### Task 3: Create the data in PostgreSQL
+To prepare your environment for this project, you first must create the data in PostgreSQL. This will simulate the production environment where the data is being used in the OLTP system. This can be done using the Python script provided for you in Github: [`ProjectDataToPostgres.py`](https://github.com/udacity/Azure-Data-Warehouse-Project/tree/main/starter)
 
-### Break Down Tests
+1. Download the script file and place it in a folder where you can run a Python script
+2. [Download the data files](https://video.udacity-data.com/topher/2022/March/622a5fc6_azure-data-warehouse-projectdatafiles/azure-data-warehouse-projectdatafiles.zip)  from the classroom resources 
+3. Open the script file in VS Code and add the host, username, and password information for your PostgreSQL database
+4. Run the script and verify that all four data files are copied/uploaded into PostgreSQL
 
-Explain what each test does and why
+You can verify this data exists by using pgAdmin or a similar PostgreSQL data tool.
 
-```
-Examples here
-```
+**Result**
 
-## Project Instructions
 
-This section should contain all the student deliverables for this project.
 
-## Built With
+### Task 4: EXTRACT the data from PostgreSQL
+In your Azure Synapse workspace, you will use the ingest wizard to create a one-time pipeline that ingests the data from PostgreSQL into Azure Blob Storage. This will result in all four tables being represented as text files in Blob Storage, ready for loading into the data warehouse.
 
-* [Item1](www.item1.com) - Description of item
-* [Item2](www.item2.com) - Description of item
+**Result**
 
-Include all items used to build project.
+### Task 5: LOAD the data into external tables in the data warehouse
+Once in Blob storage, the files will be shown in the data lake node in the Synapse Workspace. From here, you can use the script-generating function to load the data from blob storage into external staging tables in the data warehouse you created using the serverless SQL Pool.
+
+**Result**
 
 ## License
 
