@@ -74,6 +74,4 @@ Once in Blob storage, the files will be shown in the data lake node in the Synap
 
 **Result**
 
-## License
 
-[License](LICENSE.txt)
