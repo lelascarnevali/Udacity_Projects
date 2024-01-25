@@ -42,13 +42,15 @@ Since the data from Divvy are anonymous, we have created fake rider and account 
 
 **Result**
 
+<img src="images/all_resources.png" alt="dimension model" width="800">
+
 ### Task 2: Design a star schema
 
 You are being provided a relational schema that describes the data as it exists in PostgreSQL. In addition, you have been given a set of business requirements related to the data warehouse. You are being asked to design a star schema using fact and dimension tables.
 
 **Result**
 
-<img src="images/dimensional-model.jpeg" alt="dimension model" width="1000">
+<img src="images/dimensional-model.jpeg" alt="dimension model" width="800">
 
 ### Task 3: Create the data in PostgreSQL
 To prepare your environment for this project, you first must create the data in PostgreSQL. This will simulate the production environment where the data is being used in the OLTP system. This can be done using the Python script provided for you in Github: [`ProjectDataToPostgres.py`](https://github.com/udacity/Azure-Data-Warehouse-Project/tree/main/starter)
@@ -62,6 +64,7 @@ You can verify this data exists by using pgAdmin or a similar PostgreSQL data to
 
 **Result**
 
+<img src="images/ingest_postgre.png" alt="dimension model" width="800">
 
 
 ### Task 4: EXTRACT the data from PostgreSQL
@@ -69,9 +72,28 @@ In your Azure Synapse workspace, you will use the ingest wizard to create a one-
 
 **Result**
 
+Data Copy Job:
+
+<img src="images/extract_job.png" alt="dimension model" width="800">
+
+** **
+Data in Blob Storage:
+
+<img src="images/extract_data.png" alt="dimension model" width="800">
+
+
 ### Task 5: LOAD the data into external tables in the data warehouse
 Once in Blob storage, the files will be shown in the data lake node in the Synapse Workspace. From here, you can use the script-generating function to load the data from blob storage into external staging tables in the data warehouse you created using the serverless SQL Pool.
 
 **Result**
 
+[Scripts](Transform_Table_Scripts/)
 
+<img src="images/load_tables.png" alt="dimension model" width="800">
+
+### Task 6: TRANSFORM the data to the star schema using CETAS
+Write SQL scripts to transform the data from the staging tables to the final star schema you designed.
+
+The serverless SQL pool won't allow you to create persistent tables in the database, as it has no local storage. So, use CREATE EXTERNAL TABLE AS SELECT (CETAS) instead. CETAS is a parallel operation that creates external table metadata and exports the SELECT query results to a set of files in your storage account.
+
+**Result**
