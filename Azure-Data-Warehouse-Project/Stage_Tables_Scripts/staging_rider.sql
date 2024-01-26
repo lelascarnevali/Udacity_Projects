@@ -17,9 +17,9 @@ IF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'dataengudac
 
 CREATE EXTERNAL TABLE dbo.staging_rider (
 	[Rider_Id] bigint,
-	[Address] nvarchar(4000),
 	[First_Name] nvarchar(4000),
 	[Last_Name] nvarchar(4000),
+	[Address] nvarchar(4000),
 	[Birthday] varchar(50),
 	[Account_start_date] varchar(50),
 	[Account_end_date] varchar(50),
