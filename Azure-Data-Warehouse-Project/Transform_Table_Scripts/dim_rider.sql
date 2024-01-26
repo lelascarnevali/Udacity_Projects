@@ -12,7 +12,7 @@ CREATE EXTERNAL TABLE [dbo].[dim_rider] WITH(
     SELECT
         Rider_Id as id_rider,
         First_Name as nm_first_name,
-        Last_Name as nr_last_name,
+        Last_Name as nm_last_name,
         CONVERT(Date, Birthday) as dt_birthday,
         Is_member as bl_is_member,
         CONVERT(Date, Account_start_date) as dt_account_start,

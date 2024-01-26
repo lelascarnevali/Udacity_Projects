@@ -50,7 +50,7 @@ You are being provided a relational schema that describes the data as it exists 
 
 **Result**
 
-<img src="images/dimensional-model.jpeg" alt="dimension model" width="800">
+<img src="images/dimensional-model.png" alt="dimension model" width="800">
 
 ### Task 3: Create the data in PostgreSQL
 To prepare your environment for this project, you first must create the data in PostgreSQL. This will simulate the production environment where the data is being used in the OLTP system. This can be done using the Python script provided for you in Github: [`ProjectDataToPostgres.py`](https://github.com/udacity/Azure-Data-Warehouse-Project/tree/main/starter)
@@ -87,7 +87,7 @@ Once in Blob storage, the files will be shown in the data lake node in the Synap
 
 **Result**
 
-[Scripts](Transform_Table_Scripts/)
+[Scripts](Stage_Tables_Scripts/)
 
 <img src="images/load_tables.png" alt="dimension model" width="800">
 
@@ -97,3 +97,7 @@ Write SQL scripts to transform the data from the staging tables to the final sta
 The serverless SQL pool won't allow you to create persistent tables in the database, as it has no local storage. So, use CREATE EXTERNAL TABLE AS SELECT (CETAS) instead. CETAS is a parallel operation that creates external table metadata and exports the SELECT query results to a set of files in your storage account.
 
 **Result**
+
+[Scripts](Transform_Table_Scripts/)
+
+<img src="images/query_result.png" alt="dimension model" width="800">
