@@ -33,3 +33,39 @@ The goal of this project is to develop a data lake solution using Azure Databric
 3. EXTRA CREDIT - Analyze how much money is spent per member
   * Based on how many rides the rider averages per month
   * Based on how many minutes the rider spends on a bike per month
+
+## Project Tasks
+
+### Task 1: Design a star schema
+
+Design a star schema for these business outcomes above.
+
+* The student will be able to generate fact tables based on a business need and a relational model
+
+* The student will be able to generate dimension tables based on business needs and a relational model
+
+**Result**
+
+<img src="images/star-schema.png" alt="dimension model" width="800">
+
+### Task 2: Extract Step
+
+* Produce Spark code in Databricks using Jupyter Notebooks and Python scripts
+* Use distributed data storage using Azure Data Storage options
+
+**Result**
+
+
+### Task 3: Load
+
+* Implement key features of data lakes on Azure
+
+**Result**
+
+### Task 4: Transform
+
+* Use Spark and Databricks to run ELT processes by creating fact tables
+* Use Spark and Databricks to run ELT processes by creating dimension tables
+* Produce Spark code in Databricks using Jupyter Notebooks and Python scripts
+
+**Result**
