@@ -44,23 +44,29 @@ Design a star schema for these business outcomes above.
 
 * The student will be able to generate dimension tables based on business needs and a relational model
 
-**Result**
+#### Result
 
 <img src="images/star-schema.png" alt="dimension model" width="800">
+
+
+**Uploaded DBFS Files**
+
+<img src="images/DBFS-files.png" alt="dimension model" width="800">
+
 
 ### Task 2: Extract Step
 
 * Produce Spark code in Databricks using Jupyter Notebooks and Python scripts
 * Use distributed data storage using Azure Data Storage options
 
-**Result**
+#### Result
 
 
 ### Task 3: Load
 
 * Implement key features of data lakes on Azure
 
-**Result**
+#### Result
 
 ### Task 4: Transform
 
@@ -68,4 +74,4 @@ Design a star schema for these business outcomes above.
 * Use Spark and Databricks to run ELT processes by creating dimension tables
 * Produce Spark code in Databricks using Jupyter Notebooks and Python scripts
 
-**Result**
+#### Result
