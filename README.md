@@ -13,7 +13,7 @@ Project 2 - [README.md](Azure-Data-Warehouse-Synapse/README.md)
 
 ### PROJECT 3 - Building an Azure Data Lake with Databricks
 
-Project 2 - [README.md](Azure-Data-Lake-Databricks/README.md)
+Project 3 - [README.md](Azure-Data-Lake-Databricks/README.md)
 
 
 ## License
