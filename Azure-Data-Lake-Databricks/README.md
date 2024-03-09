@@ -61,12 +61,27 @@ Design a star schema for these business outcomes above.
 
 #### Result
 
+<img src="images/delta-raw.png" alt="dimension model" width="800">
+
+I prefer to use the name raw, but this is the bronze layer in this project.
+
+**Script**
+
+[1. Extract_Notebook.ipynb](Azure-Data-Lake-Databricks/1_extract_notebook.ipynb)
+
 
 ### Task 3: Load
 
 * Implement key features of data lakes on Azure
 
 #### Result
+
+<img src="images/tables_silver.png" alt="dimension model" width="800">
+
+**Script**
+
+[2. Load_Notebook.ipynb](Azure-Data-Lake-Databricks/2_load_notebook.ipynb)
+
 
 ### Task 4: Transform
 
@@ -75,3 +90,9 @@ Design a star schema for these business outcomes above.
 * Produce Spark code in Databricks using Jupyter Notebooks and Python scripts
 
 #### Result
+
+<img src="images/tables_gold.png" alt="dimension model" width="800">
+
+**Script**
+
+[3. Transform_Notebook.ipynb](Azure-Data-Lake-Databricks/3_transform_notebook.ipynb)
