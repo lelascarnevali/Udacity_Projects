@@ -67,7 +67,7 @@ I prefer to use the name raw, but this is the bronze layer in this project.
 
 **Script**
 
-[1. Extract_Notebook.ipynb](Azure-Data-Lake-Databricks/1_extract_notebook.ipynb)
+[1. Extract_Notebook.ipynb](1_extract_notebook.ipynb)
 
 
 ### Task 3: Load
@@ -80,7 +80,7 @@ I prefer to use the name raw, but this is the bronze layer in this project.
 
 **Script**
 
-[2. Load_Notebook.ipynb](Azure-Data-Lake-Databricks/2_load_notebook.ipynb)
+[2. Load_Notebook.ipynb](2_load_notebook.ipynb)
 
 
 ### Task 4: Transform
@@ -95,4 +95,4 @@ I prefer to use the name raw, but this is the bronze layer in this project.
 
 **Script**
 
-[3. Transform_Notebook.ipynb](Azure-Data-Lake-Databricks/3_transform_notebook.ipynb)
+[3. Transform_Notebook.ipynb](3_transform_notebook.ipynb)
