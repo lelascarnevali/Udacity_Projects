@@ -57,10 +57,11 @@ Upload this file (historical data) from the [project data](https://video.udacity
 
 ***Solution***
 
-```
-az storage account create --name dataengudacity --resource-group ODL-DataEng-255714 --location eastus --sku Standard_LRS --kind StorageV2 --enable-hierarchical-namespace true --allow-blob-public-access true
 
-az storage container create --name dataengudacity --account-name dataengudacity
+```
+ az storage account create --name dataengudacity --resource-group ODL-DataEng-255714 --location eastus --sku Standard_LRS --kind StorageV2 --enable-hierarchical-namespace true --allow-blob-public-access true
+
+ az storage container create --name dataengudacity --account-name dataengudacity
 
  az storage blob directory create --account-name dataengudacity --container-name dataengudacity --directory-path dirpayrollfiles
 
@@ -78,5 +79,6 @@ az storage container create --name dataengudacity --account-name dataengudacity
 
  az storage blob upload --account-name dataengudacity --container-name dataengudacity --name dirpayrollfiles/nycpayroll_2021.csv --type block --file Data/nycpayroll_2021.csv --auth-mode login
  ```
+ <br>
 
  <img src="images/Step1_Data_Lake_Gen2_creation.png" alt="dimension model" width="800">
