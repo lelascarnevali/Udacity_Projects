@@ -15,6 +15,9 @@ Project 2 - [README.md](Azure-Data-Warehouse-Synapse/README.md)
 
 Project 3 - [README.md](Azure-Data-Lake-Databricks/README.md)
 
+### PROJECT 4 - Data Integration Pipelines for NYC Payroll Data Analytics
+
+Project 4 - [README.md](Data-Integration-Pipelines/README.md)
 
 ## License
 
