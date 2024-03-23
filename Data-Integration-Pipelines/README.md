@@ -78,7 +78,18 @@ Upload this file (historical data) from the [project data](https://video.udacity
  az storage blob upload --account-name dataengudacity --container-name dataengudacity --name dirpayrollfiles/TitleMaster.csv --type block --file Data/TitleMaster.csv --auth-mode login
 
  az storage blob upload --account-name dataengudacity --container-name dataengudacity --name dirpayrollfiles/nycpayroll_2021.csv --type block --file Data/nycpayroll_2021.csv --auth-mode login
- ```
- <br>
+```
+<br>
+<img src="images/Step1_Data_Lake_Gen2_creation.png" alt="dimension model" width="800">
+<br>
 
- <img src="images/Step1_Data_Lake_Gen2_creation.png" alt="dimension model" width="800">
+**2. Create an Azure Data Factory Resource**
+
+***Solution***
+
+```
+ az datafactory create --name DataFactoryUdacity --resource-group ODL-DataEng-255714 --location eastus
+ ```
+<br>
+<img src="images/Step1_Data_Factory.png" alt="dimension model" width="800">
+<br>
