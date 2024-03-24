@@ -1,0 +1,37 @@
+{
+  "sku": {
+      "name": "Basic",
+      "tier": "Basic",
+      "capacity": 5
+  },
+  "kind": "v12.0,user",
+  "properties": {
+      "collation": "SQL_Latin1_General_CP1_CI_AS",
+      "maxSizeBytes": 2147483648,
+      "status": "Online",
+      "databaseId": "2f3fdea3-2a41-4c26-beec-c0d71f6de90b",
+      "creationDate": "2024-03-23T22:02:12.25Z",
+      "currentServiceObjectiveName": "Basic",
+      "requestedServiceObjectiveName": "Basic",
+      "defaultSecondaryLocation": "westus",
+      "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+      "zoneRedundant": false,
+      "earliestRestoreDate": "2024-03-23T23:44:10Z",
+      "readScale": "Disabled",
+      "currentSku": {
+          "name": "Basic",
+          "tier": "Basic",
+          "capacity": 5
+      },
+      "currentBackupStorageRedundancy": "Geo",
+      "requestedBackupStorageRedundancy": "Geo",
+      "maintenanceConfigurationId": "/subscriptions/481b1dfa-09f6-4305-a978-b656e03d8e84/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_Default",
+      "isLedgerOn": false,
+      "isInfraEncryptionEnabled": false,
+      "availabilityZone": "NoPreference"
+  },
+  "location": "eastus",
+  "id": "/subscriptions/481b1dfa-09f6-4305-a978-b656e03d8e84/resourceGroups/ODL-DataEng-255714/providers/Microsoft.Sql/servers/sqldbudacity/databases/db_nycpayroll",
+  "name": "db_nycpayroll",
+  "type": "Microsoft.Sql/servers/databases"
+}
