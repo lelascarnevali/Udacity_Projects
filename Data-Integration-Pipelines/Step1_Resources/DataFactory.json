@@ -1,0 +1,25 @@
+{
+  "name": "DataFactoryUdacity",
+  "id": "/subscriptions/481b1dfa-09f6-4305-a978-b656e03d8e84/resourceGroups/odl-dataeng-255714/providers/Microsoft.DataFactory/factories/datafactoryudacity",
+  "type": "Microsoft.DataFactory/factories",
+  "properties": {
+      "provisioningState": "Succeeded",
+      "createTime": "2024-03-23T21:23:07.7782141Z",
+      "version": "2018-06-01",
+      "factoryStatistics": {
+          "totalResourceCount": 0,
+          "maxAllowedResourceCount": 0,
+          "factorySizeInGbUnits": 0,
+          "maxAllowedFactorySizeInGbUnits": 0
+      },
+      "encryption": {}
+  },
+  "eTag": "\"d6017f3a-0000-0100-0000-65ff483b0000\"",
+  "location": "eastus",
+  "identity": {
+      "type": "SystemAssigned",
+      "principalId": "7d13770d-accc-4650-8b20-75e7c22018b0",
+      "tenantId": "f958e84a-92b8-439f-a62d-4f45996b6d07"
+  },
+  "tags": {}
+}

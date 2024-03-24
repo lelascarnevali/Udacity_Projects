@@ -1,0 +1,58 @@
+{
+  "sku": {
+      "name": "Standard_LRS",
+      "tier": "Standard"
+  },
+  "kind": "StorageV2",
+  "id": "/subscriptions/481b1dfa-09f6-4305-a978-b656e03d8e84/resourceGroups/ODL-DataEng-255714/providers/Microsoft.Storage/storageAccounts/dataengudacity",
+  "name": "dataengudacity",
+  "type": "Microsoft.Storage/storageAccounts",
+  "location": "eastus",
+  "tags": {},
+  "properties": {
+      "keyCreationTime": {
+          "key1": "2024-03-23T20:47:52.0200144Z",
+          "key2": "2024-03-23T20:47:52.0200144Z"
+      },
+      "allowCrossTenantReplication": false,
+      "privateEndpointConnections": [],
+      "minimumTlsVersion": "TLS1_0",
+      "allowBlobPublicAccess": true,
+      "isHnsEnabled": true,
+      "networkAcls": {
+          "bypass": "AzureServices",
+          "virtualNetworkRules": [],
+          "ipRules": [],
+          "defaultAction": "Allow"
+      },
+      "supportsHttpsTrafficOnly": true,
+      "encryption": {
+          "services": {
+              "file": {
+                  "keyType": "Account",
+                  "enabled": true,
+                  "lastEnabledTime": "2024-03-23T20:47:52.0200144Z"
+              },
+              "blob": {
+                  "keyType": "Account",
+                  "enabled": true,
+                  "lastEnabledTime": "2024-03-23T20:47:52.0200144Z"
+              }
+          },
+          "keySource": "Microsoft.Storage"
+      },
+      "accessTier": "Hot",
+      "provisioningState": "Succeeded",
+      "creationTime": "2024-03-23T20:47:51.6762703Z",
+      "primaryEndpoints": {
+          "dfs": "https://dataengudacity.dfs.core.windows.net/",
+          "web": "https://dataengudacity.z13.web.core.windows.net/",
+          "blob": "https://dataengudacity.blob.core.windows.net/",
+          "queue": "https://dataengudacity.queue.core.windows.net/",
+          "table": "https://dataengudacity.table.core.windows.net/",
+          "file": "https://dataengudacity.file.core.windows.net/"
+      },
+      "primaryLocation": "eastus",
+      "statusOfPrimary": "available"
+  }
+}

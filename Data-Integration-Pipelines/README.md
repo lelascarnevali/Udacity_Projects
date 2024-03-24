@@ -56,8 +56,7 @@ Upload this file (historical data) from the [project data](https://video.udacity
 * nycpayroll_2020.csv
 
 ***Solution***
-
-
+<br>
 ```
  az storage account create --name dataengudacity --resource-group ODL-DataEng-255714 --location eastus --sku Standard_LRS --kind StorageV2 --enable-hierarchical-namespace true --allow-blob-public-access true
 
@@ -89,7 +88,31 @@ Upload this file (historical data) from the [project data](https://video.udacity
 
 ```
  az datafactory create --name DataFactoryUdacity --resource-group ODL-DataEng-255714 --location eastus
- ```
+```
 <br>
 <img src="images/Step1_Data_Factory.png" alt="dimension model" width="800">
 <br>
+
+**3. Create a SQL Database**
+
+  In the Azure portal, create a SQL Database resource named db_nycpayroll.
+
+  In the creation steps, you will be required to create a SQL server, create a server with Service tier: Basic (For less demanding workloads).
+
+  In Networking tab, allow both of the below options:
+
+  * Allow Azure services and resources to access this server
+  * Add current client IP address
+
+***Solution***
+<br>
+```
+  az sql server create --name SqlDbUdacity --resource-group ODL-DataEng-255714 --location eastus --admin-user udacityadmin --admin-password Xp34Zqo7Tt98
+
+
+  az sql server firewall-rule create --resource-group ODL-DataEng-255714 --server SqlDbUdacity --name AllowAllAzureIPs --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+
+  az sql server firewall-rule create --resource-group ODL-DataEng-255714 --server SqlDbUdacity --name AllowCurrentClientIP --start-ip-address 187.3.90.2 --end-ip-address 187.3.90.2
+
+  az sql db create --resource-group ODL-DataEng-255714 --server SqlDbUdacity --name db_nycpayroll --edition Basic --zone-redundant false
+```
