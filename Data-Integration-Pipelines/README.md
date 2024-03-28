@@ -198,6 +198,7 @@ GO
 
 ***Solution***
 <img src="images/Step1_Synapse_External_Table.png" alt="dimension model" width="800">
+<br>
 
 **6. Create master data tables and payroll transaction tables in SQL DB**
 
