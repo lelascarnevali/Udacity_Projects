@@ -31,7 +31,7 @@ When you submit your project, it will be assessed against this [project rubric](
 #### Project Data
 Download these [.csv files](https://video.udacity-data.com/topher/2022/May/6283aff5_data-nyc-payroll/data-nyc-payroll.zip) that ***provide the data for the project***.
 
-#### Step 1: Prepare the Data Infrastructure
+### Step 1: Prepare the Data Infrastructure
 Setup Data and Resources in Azure
 
 **1.Create the data lake and upload data**
@@ -292,7 +292,7 @@ Create Payroll summary data table:
 <br>
 <img src="images/Step1_SqlDatabase_Tables.png" alt="dimension model" width="800">
 
-#### Step 2: Create Linked Services
+### Step 2: Create Linked Services
 
 **1.Create a Linked Service for Azure Data Lake**
 
