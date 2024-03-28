@@ -302,7 +302,7 @@ Test the connection
 
 ***Solution***
 <br>
-<img src="images/Step2_LinkedService_AzureDataLakeStorage.png" alt="dimension model" width="800">
+<img src="images/Step2_LinkedService_AzureDataLakeStorage.png" alt="dimension model" width="400">
 
 
 **2.Create a Linked Service to SQL Database that has the current (2021) data**
@@ -311,7 +311,7 @@ If you get a connection error, remember to add the IP address to the firewall se
 
 ***Solution***
 <br>
-<img src="images/Step2_LinkedService_AzureSqlDatabase.png" alt="dimension model" width="800">
+<img src="images/Step2_LinkedService_AzureSqlDatabase.png" alt="dimension model" width="400">
 
 **3.Create a Linked Service for Synapse Analytics**
 
@@ -319,4 +319,4 @@ Create the linked service to the SQL pool.
 
 ***Solution***
 <br>
-<img src="images/Step2_LinkedService_AzureSynapseAnalytics.png" alt="dimension model" width="800">
+<img src="images/Step2_LinkedService_AzureSynapseAnalytics.png" alt="dimension model" width="400">
