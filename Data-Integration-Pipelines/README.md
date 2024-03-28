@@ -2,9 +2,7 @@
 
 ## Data Integration Pipelines for NYC Payroll Data Analytics
 
-### Instructions: Create and Configure Resources
-
-#### Setting Up the Environment
+### Setting Up the Environment
 
 To replicate this environment, follow these steps:
 
@@ -16,6 +14,7 @@ To replicate this environment, follow these steps:
 3. ***Navigate to Repository***: Make sure you are in the directory of this repository, Data-Integration-Pipelines, where the necessary files are located.
 4. ***Resource Group Update***: Replace the placeholder for the Resource Group with the name of your provisioned Azure account.
 
+### Instructions: Create and Configure Resources
 
 #### Project Instructions
 For this project, you'll do your work in the Azure Portal, using several Azure resources including:
