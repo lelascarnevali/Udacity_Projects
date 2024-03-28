@@ -197,8 +197,9 @@ GO
 ```
 
 ***Solution***
-<img src="images/Step1_Synapse_External_Table.png" alt="dimension model" width="800">
 <br>
+<img src="images/Step1_Synapse_External_Table.png" alt="dimension model" width="800">
+
 
 **6. Create master data tables and payroll transaction tables in SQL DB**
 
@@ -288,4 +289,5 @@ Create Payroll summary data table:
 ```
 
 ***Solution***
+<br>
 <img src="images/Step1_SqlDatabase_Tables.png" alt="dimension model" width="800">
