@@ -68,7 +68,7 @@ Upload this file (historical data) from the [project data](https://video.udacity
 * nycpayroll_2020.csv
 
 ***Solution***
-<br>
+
 ```
  az storage account create --name dataengudacity --resource-group ODL-DataEng-255714 --location eastus --sku Standard_LRS --kind StorageV2 --enable-hierarchical-namespace true --allow-blob-public-access true
 
@@ -92,7 +92,7 @@ Upload this file (historical data) from the [project data](https://video.udacity
 ```
 <br>
 <img src="images/Step1_Data_Lake_Gen2_creation.png" alt="dimension model" width="800">
-<br>
+
 
 **2. Create an Azure Data Factory Resource**
 
@@ -117,7 +117,7 @@ In Networking tab, allow both of the below options:
 * Add current client IP address
 
 ***Solution***
-<br>
+
 ```
   az sql server create --name SqlDbUdacity --resource-group ODL-DataEng-255714 --location eastus --admin-user udacityadmin --admin-password Xp34Zqo7Tt98
 
@@ -144,7 +144,7 @@ You are only allowed one Synapse Analytics workspace per Azure account, a Micros
 Create a new Azure Data Lake Gen2 and file system for Synapse Analytics when you are creating the Synapse Analytics workspace in the Azure portal.
 
 ***Solution***
-<br>
+
 ```
   az synapse workspace create --name synapseudacity --resource-group ODL-DataEng-255714 --storage-account dataengudacity --file-system dataengudacity --sql-admin-login-user udacityadmin --sql-admin-login-password Xp34Zqo7Tt98 --location "East US" --firewall-rule-name AllowAllWindowsAzureIps
 
@@ -156,4 +156,135 @@ Azure Synapse Service
 <br>
 Udacity Database in Synapse
 <img src="images/Step1_AzureSynapse_Database.png" alt="dimension model" width="800">
-<br>
+
+**5. Create summary data external table in Synapse Analytics workspace**
+
+Define the file format, if not already, for reading/saving the data from/to a comma delimited file in blob storage.
+
+```
+IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseDelimitedTextFormat') 
+  CREATE EXTERNAL FILE FORMAT [SynapseDelimitedTextFormat] 
+  WITH ( FORMAT_TYPE = DELIMITEDTEXT ,
+  FORMAT_OPTIONS (
+  FIELD_TERMINATOR = ',',
+  USE_TYPE_DEFAULT = FALSE
+  ))
+GO
+
+-- Storage path where the result set will persist
+IF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'dataengudacity_dataengudacity_dfs_core_windows_net') 
+  CREATE EXTERNAL DATA SOURCE [dataengudacity_dataengudacity_dfs_core_windows_net] 
+  WITH (
+      LOCATION = 'abfss://dataengudacity@dataengudacity.dfs.core.windows.net' 
+  )
+GO
+```
+* Define the data source to persist the results.***Use the blob storage account name as applicable to you.***
+
+* Create external table that references the dirstaging directory of DataLake Gen2 storage for staging payroll summary data. (Pipeline for this will be created in later section)
+
+```
+  CREATE EXTERNAL TABLE [dbo].[NYC_Payroll_Summary](
+    [FiscalYear] [int] NULL,
+    [AgencyName] [varchar](50) NULL,
+    [TotalPaid] [float] NULL
+  )
+  WITH (
+    LOCATION = '/dirstaging', -- Diretório específico no DataLake Gen2
+    DATA_SOURCE = [dataengudacity_dataengudacity_dfs_core_windows_net], -- Sua fonte de dados externa
+    FILE_FORMAT = [SynapseDelimitedTextFormat] -- Formato de arquivo externo
+  )
+```
+
+***Solution***
+<img src="images/Step1_Synapse_External_Table.png" alt="dimension model" width="800">
+
+**6. Create master data tables and payroll transaction tables in SQL DB**
+
+Create Employee Master Data table:
+```
+  CREATE TABLE [dbo].[NYC_Payroll_EMP_MD](
+    [EmployeeID] [varchar](10) NULL,
+    [LastName] [varchar](20) NULL,
+    [FirstName] [varchar](20) NULL
+  ) 
+  GO
+```
+Create Job Title Table:
+```
+  CREATE TABLE [dbo].[NYC_Payroll_TITLE_MD](
+    [TitleCode] [varchar](10) NULL,
+    [TitleDescription] [varchar](100) NULL
+  )
+  GO
+```
+Create Agency Master table:
+```
+  CREATE TABLE [dbo].[NYC_Payroll_AGENCY_MD](
+    [AgencyID] [varchar](10) NULL,
+    [AgencyName] [varchar](50) NULL
+  ) 
+  GO
+```
+Create Payroll 2020 transaction data table:
+```
+  CREATE TABLE [dbo].[NYC_Payroll_Data_2020](
+    [FiscalYear] [int] NULL,
+    [PayrollNumber] [int] NULL,
+    [AgencyID] [varchar](10) NULL,
+    [AgencyName] [varchar](50) NULL,
+    [EmployeeID] [varchar](10) NULL,
+    [LastName] [varchar](20) NULL,
+    [FirstName] [varchar](20) NULL,
+    [AgencyStartDate] [date] NULL,
+    [WorkLocationBorough] [varchar](50) NULL,
+    [TitleCode] [varchar](10) NULL,
+    [TitleDescription] [varchar](100) NULL,
+    [LeaveStatusasofJune30] [varchar](50) NULL,
+    [BaseSalary] [float] NULL,
+    [PayBasis] [varchar](50) NULL,
+    [RegularHours] [float] NULL,
+    [RegularGrossPaid] [float] NULL,
+    [OTHours] [float] NULL,
+    [TotalOTPaid] [float] NULL,
+    [TotalOtherPay] [float] NULL
+  ) 
+  GO
+```
+Create Payroll 2021 transaction data table:
+```
+  CREATE TABLE [dbo].[NYC_Payroll_Data_2021](
+    [FiscalYear] [int] NULL,
+    [PayrollNumber] [int] NULL,
+    [AgencyCode] [varchar](10) NULL,
+    [AgencyName] [varchar](50) NULL,
+    [EmployeeID] [varchar](10) NULL,
+    [LastName] [varchar](20) NULL,
+    [FirstName] [varchar](20) NULL,
+    [AgencyStartDate] [date] NULL,
+    [WorkLocationBorough] [varchar](50) NULL,
+    [TitleCode] [varchar](10) NULL,
+    [TitleDescription] [varchar](100) NULL,
+    [LeaveStatusasofJune30] [varchar](50) NULL,
+    [BaseSalary] [float] NULL,
+    [PayBasis] [varchar](50) NULL,
+    [RegularHours] [float] NULL,
+    [RegularGrossPaid] [float] NULL,
+    [OTHours] [float] NULL,
+    [TotalOTPaid] [float] NULL,
+    [TotalOtherPay] [float] NULL
+  ) 
+  GO
+```
+Create Payroll summary data table:
+```
+  CREATE TABLE [dbo].[NYC_Payroll_Summary](
+    [FiscalYear] [int] NULL,
+    [AgencyName] [varchar](50) NULL,
+    [TotalPaid] [float] NULL 
+  )
+  GO
+```
+
+***Solution***
+<img src="images/Step1_SqlDatabase_Tables.png" alt="dimension model" width="800">
