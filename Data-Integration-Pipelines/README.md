@@ -1,8 +1,7 @@
 # Udacity Project - Data Engineering with Azure
+# Data Integration Pipelines for NYC Payroll Data Analytics
 
-## Data Integration Pipelines for NYC Payroll Data Analytics
-
-### Setting Up the Environment
+## Setting Up the Environment
 
 To replicate this environment, follow these steps:
 
@@ -28,10 +27,10 @@ Instructions for using a temporary Azure account to complete the project are on 
 
 When you submit your project, it will be assessed against this [project rubric](https://learn.udacity.com/rubric/5487). Take a moment to review it now and periodically throughout the project to make sure you're meeting the requirements.
 
-#### Project Data
+### Project Data
 Download these [.csv files](https://video.udacity-data.com/topher/2022/May/6283aff5_data-nyc-payroll/data-nyc-payroll.zip) that ***provide the data for the project***.
 
-### Step 1: Prepare the Data Infrastructure
+## Step 1: Prepare the Data Infrastructure
 Setup Data and Resources in Azure
 
 **1.Create the data lake and upload data**
@@ -292,7 +291,7 @@ Create Payroll summary data table:
 <br>
 <img src="images/Step1_SqlDatabase_Tables.png" alt="dimension model" width="800">
 
-### Step 2: Create Linked Services
+## Step 2: Create Linked Services
 
 **1.Create a Linked Service for Azure Data Lake**
 
@@ -303,7 +302,7 @@ Test the connection
 
 ***Solution***
 <br>
-<img src="images/LinkedService_AzureSynapseAnalytics.png" alt="dimension model" width="800">
+<img src="images/Step2_LinkedService_AzureDataLakeStorage.png" alt="dimension model" width="800">
 
 
 **2.Create a Linked Service to SQL Database that has the current (2021) data**
