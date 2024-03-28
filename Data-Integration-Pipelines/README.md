@@ -60,13 +60,13 @@ Upload this file (historical data) from the [project data](https://video.udacity
 ```
  az storage account create --name dataengudacity --resource-group ODL-DataEng-255714 --location eastus --sku Standard_LRS --kind StorageV2 --enable-hierarchical-namespace true --allow-blob-public-access true
 
- az storage container create --name dataengudacity --account-name dataengudacity
+ az storage container create --name dataengudacity --account-name dataengudacity --auth-mode login
 
- az storage blob directory create --account-name dataengudacity --container-name dataengudacity --directory-path dirpayrollfiles
+ az storage fs directory create --account-name dataengudacity --file-system dataengudacity --name dirpayrollfiles --auth-mode login
 
- az storage blob directory create --account-name dataengudacity --container-name dataengudacity --directory-path dirhistoryfiles
+ az storage fs directory create --account-name dataengudacity --file-system dataengudacity --name dirhistoryfiles --auth-mode login
 
- az storage blob directory create --account-name dataengudacity --container-name dataengudacity --directory-path dirstaging
+ az storage fs directory create --account-name dataengudacity --file-system dataengudacity --name dirstaging --auth-mode login
 
  az storage blob upload --account-name dataengudacity --container-name dataengudacity --name dirhistoryfiles/nycpayroll_2020.csv --type block --file Data/nycpayroll_2020.csv --auth-mode login
 
