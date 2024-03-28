@@ -1,0 +1,41 @@
+{
+  "properties": {
+      "defaultDataLakeStorage": {
+          "createManagedPrivateEndpoint": false,
+          "accountUrl": "https://dataengudacity.dfs.core.windows.net",
+          "filesystem": "dataengudacity"
+      },
+      "encryption": {
+          "doubleEncryptionEnabled": false
+      },
+      "provisioningState": "Succeeded",
+      "connectivityEndpoints": {
+          "web": "https://web.azuresynapse.net?workspace=%2fsubscriptions%2f4e780871-9657-43bf-b521-9c73706b76b1%2fresourceGroups%2fODL-DataEng-256137%2fproviders%2fMicrosoft.Synapse%2fworkspaces%2fsynapseudacity",
+          "dev": "https://synapseudacity.dev.azuresynapse.net",
+          "sqlOnDemand": "synapseudacity-ondemand.sql.azuresynapse.net",
+          "sql": "synapseudacity.sql.azuresynapse.net"
+      },
+      "managedResourceGroupName": "synapseworkspace-managedrg-0406abc8-f914-49bb-a57c-47ba4380b7b6",
+      "sqlAdministratorLogin": "udacityadmin",
+      "privateEndpointConnections": [],
+      "workspaceUID": "70312a33-f563-48f8-a08f-669bd598f54d",
+      "extraProperties": {
+          "WorkspaceType": "Normal",
+          "IsScopeEnabled": false
+      },
+      "publicNetworkAccess": "Enabled",
+      "cspWorkspaceAdminProperties": {
+          "initialWorkspaceAdminObjectId": "0a7d0cad-9b43-4d94-b5be-15835c57a19b"
+      },
+      "trustedServiceBypassEnabled": false
+  },
+  "type": "Microsoft.Synapse/workspaces",
+  "id": "/subscriptions/4e780871-9657-43bf-b521-9c73706b76b1/resourceGroups/ODL-DataEng-256137/providers/Microsoft.Synapse/workspaces/synapseudacity",
+  "location": "eastus",
+  "name": "synapseudacity",
+  "identity": {
+      "type": "SystemAssigned",
+      "tenantId": "f958e84a-92b8-439f-a62d-4f45996b6d07",
+      "principalId": "3e181f21-940b-4fe8-945c-222adb579332"
+  }
+}

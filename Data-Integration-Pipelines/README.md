@@ -4,6 +4,19 @@
 
 ### Instructions: Create and Configure Resources
 
+#### Setting Up the Environment
+
+To replicate this environment, follow these steps:
+
+1. ***Install Azure CLI***: Ensure that you have the Azure CLI installed on your machine. If not, download and install it from the official Azure CLI documentation.
+2. ***Login to Azure Portal***: Run the following command to log in to your Azure account:
+```
+  az login
+```
+3. ***Navigate to Repository***: Make sure you are in the directory of this repository, Data-Integration-Pipelines, where the necessary files are located.
+4. ***Resource Group Update***: Replace the placeholder for the Resource Group with the name of your provisioned Azure account.
+
+
 #### Project Instructions
 For this project, you'll do your work in the Azure Portal, using several Azure resources including:
 
@@ -95,14 +108,14 @@ Upload this file (historical data) from the [project data](https://video.udacity
 
 **3. Create a SQL Database**
 
-  In the Azure portal, create a SQL Database resource named db_nycpayroll.
+In the Azure portal, create a SQL Database resource named db_nycpayroll.
 
-  In the creation steps, you will be required to create a SQL server, create a server with Service tier: Basic (For less demanding workloads).
+In the creation steps, you will be required to create a SQL server, create a server with Service tier: Basic (For less demanding workloads).
 
-  In Networking tab, allow both of the below options:
+In Networking tab, allow both of the below options:
 
-  * Allow Azure services and resources to access this server
-  * Add current client IP address
+* Allow Azure services and resources to access this server
+* Add current client IP address
 
 ***Solution***
 <br>
@@ -116,3 +129,32 @@ Upload this file (historical data) from the [project data](https://video.udacity
 
   az sql db create --resource-group ODL-DataEng-255714 --server SqlDbUdacity --name db_nycpayroll --edition Basic --zone-redundant false
 ```
+<br>
+<img src="images/Step1_SQL_Database.png" alt="dimension model" width="800">
+<br>
+
+**4. Create a Synapse Analytics workspace**
+
+Under Synapse, you will not be allowed to run SQL commands in the default main database. Use the below command to create a database and then refresh the database selector dropdown and choose your created database before running any queries.
+
+```
+  CREATE DATABASE udacity
+```
+
+You are only allowed one Synapse Analytics workspace per Azure account, a Microsoft restriction.
+Create a new Azure Data Lake Gen2 and file system for Synapse Analytics when you are creating the Synapse Analytics workspace in the Azure portal.
+
+***Solution***
+<br>
+```
+  az synapse workspace create --name synapseudacity --resource-group ODL-DataEng-255714 --storage-account dataengudacity --file-system dataengudacity --sql-admin-login-user udacityadmin --sql-admin-login-password Xp34Zqo7Tt98 --location "East US" --firewall-rule-name AllowAllWindowsAzureIps
+
+  az synapse workspace firewall-rule create --name "Allow Client IP" --workspace-name synapseudacity --resource-group ODL-DataEng-255714 --start-ip-address 187.3.90.2 --end-ip-address 187.3.90.2
+```
+<br>
+Azure Synapse Service
+<img src="images/Step1_AzureSynapse.png" alt="dimension model" width="800">
+<br>
+Udacity Database in Synapse
+<img src="images/Step1_AzureSynapse_Database.png" alt="dimension model" width="800">
+<br>
