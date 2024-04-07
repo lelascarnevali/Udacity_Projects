@@ -324,7 +324,7 @@ Create the linked service to the SQL pool.
 <br>
 <img src="images/Step2_LinkedService_AzureSynapseAnalytics.png" alt="dimension model" width="400">
 
-__All linked service created.__
+_All linked service created._
 
 Azure CLI:
 ```
@@ -335,4 +335,4 @@ Azure CLI:
   az synapse linked-service create --workspace-name synapseudacity --name LinkedService_AzureSynapseAnalytics --file @'/Resources_Json/Step2_Resources/LinkedService_AzureSynapseAnalytics.json'
 ```
 
-<img src="images/Step2_LinkedService_All.png" alt="dimension model" width="400">
+<img src="images/Step2_LinkedService_All.png" alt="dimension model" width="800">
