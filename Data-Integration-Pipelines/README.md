@@ -324,7 +324,7 @@ Create the linked service to the SQL pool.
 <br>
 <img src="images/Step2_LinkedService_AzureSynapseAnalytics.png" alt="dimension model" width="400">
 
-_All linked service created._
+*All linked service created.*
 
 Azure CLI:
 ```
