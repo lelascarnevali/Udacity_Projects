@@ -1,0 +1,26 @@
+{
+    "name": "ds_NYC_Payroll_TITLE_MD",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "LinkedService_AzureSqlDatabase",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "AzureSqlTable",
+        "schema": [
+            {
+                "name": "TitleCode",
+                "type": "varchar"
+            },
+            {
+                "name": "TitleDescription",
+                "type": "varchar"
+            }
+        ],
+        "typeProperties": {
+            "schema": "dbo",
+            "table": "NYC_Payroll_TITLE_MD"
+        }
+    },
+    "type": "Microsoft.Synapse/workspaces/datasets"
+}

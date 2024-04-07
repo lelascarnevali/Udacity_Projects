@@ -1,0 +1,16 @@
+{
+  "name": "ds_synapse_NYC_Payroll_Summary",
+  "properties": {
+      "linkedServiceName": {
+          "referenceName": "LinkedService_AzureSynapseAnalytics",
+          "type": "LinkedServiceReference"
+      },
+      "annotations": [],
+      "type": "AzureSqlDWTable",
+      "schema": [],
+      "typeProperties": {
+          "schema": "dbo",
+          "table": "NYC_Payroll_Summary"
+      }
+  }
+}

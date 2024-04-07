@@ -1,16 +1,14 @@
 {
   "name": "LinkedService_AzureSynapseAnalytics",
-  "type": "Microsoft.Synapse/workspaces/linkedservices",
   "properties": {
-      "annotations": [],
-      "type": "AzureSqlDW",
-      "typeProperties": {
-          "connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=synapseudacity-ondemand.sql.azuresynapse.net;initial catalog=udacity;user id=udacityadmin",
-          "encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIlNZTkFQU0VAMDNGNjMyOTUtNEQ3MS00NDQxLUI5QjktRjVBMDkxNjU5NjZFXzE2YTMyYTZiLWVlYmUtNGNlZS05MDBlLTQ1ZDQ2MTA5NWNiMyINCn0="
-      },
-      "connectVia": {
-          "referenceName": "AutoResolveIntegrationRuntime",
-          "type": "IntegrationRuntimeReference"
-      }
-  }
+    "annotations": [],
+    "type": "AzureSqlDW",
+    "typeProperties": {
+        "connectionString": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=synapseudacity-ondemand.sql.azuresynapse.net;Initial Catalog=udacity"
+    },
+    "connectVia": {
+        "referenceName": "AutoResolveIntegrationRuntime",
+        "type": "IntegrationRuntimeReference"
+    }
+}
 }

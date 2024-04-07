@@ -1,0 +1,33 @@
+{
+  "name": "ds_AgencyMaster",
+  "properties": {
+      "linkedServiceName": {
+          "referenceName": "LinkedService_AzureDataLakeStorage",
+          "type": "LinkedServiceReference"
+      },
+      "annotations": [],
+      "type": "DelimitedText",
+      "typeProperties": {
+          "location": {
+              "type": "AzureBlobFSLocation",
+              "fileName": "AgencyMaster.csv",
+              "folderPath": "dirpayrollfiles",
+              "fileSystem": "dataengudacity"
+          },
+          "columnDelimiter": ",",
+          "escapeChar": "\\",
+          "firstRowAsHeader": true,
+          "quoteChar": "\""
+      },
+      "schema": [
+          {
+              "name": "AgencyID",
+              "type": "String"
+          },
+          {
+              "name": "AgencyName",
+              "type": "String"
+          }
+      ]
+  }
+}
