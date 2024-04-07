@@ -137,6 +137,7 @@ Under Synapse, you will not be allowed to run SQL commands in the default main d
 
 ```
   CREATE DATABASE udacity
+  GO
 ```
 
 You are only allowed one Synapse Analytics workspace per Azure account, a Microsoft restriction.
@@ -145,7 +146,9 @@ Create a new Azure Data Lake Gen2 and file system for Synapse Analytics when you
 ***Solution***
 
 ```
-  az synapse workspace create --name synapseudacity --resource-group ODL-DataEng-255714 --storage-account dataengudacity --file-system dataengudacity --sql-admin-login-user udacityadmin --sql-admin-login-password Xp34Zqo7Tt98 --location "East US" --firewall-rule-name AllowAllWindowsAzureIps
+  az synapse workspace create --name synapseudacity --resource-group ODL-DataEng-255714 --storage-account dataengudacity --file-system dataengudacity --sql-admin-login-user udacityadmin --sql-admin-login-password Xp34Zqo7Tt98 --location "East US"
+
+  az synapse workspace firewall-rule create --name "AllowAllWindowsAzureIps" --workspace-name synapseudacity --resource-group ODL-DataEng-255714 --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 
   az synapse workspace firewall-rule create --name "Allow Client IP" --workspace-name synapseudacity --resource-group ODL-DataEng-255714 --start-ip-address 187.3.90.2 --end-ip-address 187.3.90.2
 ```
@@ -310,6 +313,14 @@ Test the connection
 If you get a connection error, remember to add the IP address to the firewall settings in SQL DB in the Azure Portal
 
 ***Solution***
+Azure CLI:
+```
+  az synapse linked-service create --workspace-name synapseudacity --name LinkedService_AzureDataLakeStorage --file @'/Resources_Json/Step2_Resources/LinkedService_AzureDataLakeStorage.json'
+
+  az synapse linked-service create --workspace-name synapseudacity --name LinkedService_AzureSqlDatabase --file @'/Resources_Json/Step2_Resources/LinkedService_AzureSqlDatabase.json'
+
+  az synapse linked-service create --workspace-name synapseudacity --name LinkedService_AzureSynapseAnalytics --file @'/Resources_Json/Step2_Resources/LinkedService_AzureSynapseAnalytics.json'
+```
 <br>
 <img src="images/Step2_LinkedService_AzureSqlDatabase.png" alt="dimension model" width="400">
 
