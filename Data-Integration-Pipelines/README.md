@@ -313,14 +313,6 @@ Test the connection
 If you get a connection error, remember to add the IP address to the firewall settings in SQL DB in the Azure Portal
 
 ***Solution***
-Azure CLI:
-```
-  az synapse linked-service create --workspace-name synapseudacity --name LinkedService_AzureDataLakeStorage --file @'/Resources_Json/Step2_Resources/LinkedService_AzureDataLakeStorage.json'
-
-  az synapse linked-service create --workspace-name synapseudacity --name LinkedService_AzureSqlDatabase --file @'/Resources_Json/Step2_Resources/LinkedService_AzureSqlDatabase.json'
-
-  az synapse linked-service create --workspace-name synapseudacity --name LinkedService_AzureSynapseAnalytics --file @'/Resources_Json/Step2_Resources/LinkedService_AzureSynapseAnalytics.json'
-```
 <br>
 <img src="images/Step2_LinkedService_AzureSqlDatabase.png" alt="dimension model" width="400">
 
@@ -331,3 +323,16 @@ Create the linked service to the SQL pool.
 ***Solution***
 <br>
 <img src="images/Step2_LinkedService_AzureSynapseAnalytics.png" alt="dimension model" width="400">
+
+__All linked service created.__
+
+Azure CLI:
+```
+  az synapse linked-service create --workspace-name synapseudacity --name LinkedService_AzureDataLakeStorage --file @'/Resources_Json/Step2_Resources/LinkedService_AzureDataLakeStorage.json'
+
+  az synapse linked-service create --workspace-name synapseudacity --name LinkedService_AzureSqlDatabase --file @'/Resources_Json/Step2_Resources/LinkedService_AzureSqlDatabase.json'
+
+  az synapse linked-service create --workspace-name synapseudacity --name LinkedService_AzureSynapseAnalytics --file @'/Resources_Json/Step2_Resources/LinkedService_AzureSynapseAnalytics.json'
+```
+
+<img src="images/Step2_LinkedService_All.png" alt="dimension model" width="400">
