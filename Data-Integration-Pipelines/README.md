@@ -356,11 +356,27 @@ Azure CLI:
 * AgencyMaster.csv
 * Remember to publish all the datasets
 
+***Solution***
+
+*EmpMaster.csv*
+<img src="images/Dataset_EmpMaster.png" alt="dataset_EmpMaster" width="800">
+
+*TitleMaster.csv*
+<img src="images/dataset_TitleMaster.png" alt="dataset_TitleMaster" width="800">
+
+*AgencyMaster.csv*
+<img src="images/Dataset_AgencyMaster.png" alt="Dataset_AgencyMaster" width="800">
+
 **3. Create the dataset for all the data tables in SQL DB**
+
+***Solution***
+See below
 
 **4. Create the datasets for destination (target) table in Synapse Analytics**
 
 * dataset for NYC_Payroll_Summary
+
+***Solution***
 
 *All dataset created.*
 
@@ -368,3 +384,5 @@ Azure CLI:
 ```
   az synapse dataset create --workspace-name synapseudacity --name ds_nycpayroll_2021 --file @'/Resources_Json/Step3_Resources/ds_nycpayroll_2021.json'
 ```
+
+<img src="images/dataset_all.png" alt="dataset_all" width="800">
