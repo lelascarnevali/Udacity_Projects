@@ -366,5 +366,5 @@ Azure CLI:
 
 Azure CLI:
 ```
-  az synapse dataset create --workspace-name synapseudacity --name ds_nycpayroll_2021 --file @'/Users/leandro.ferro/Pessoal_Repositorio/Udacity_Projects/Data-Integration-Pipelines/Resources_Json/Step3_Resources/ds_nycpayroll_2021.json'
+  az synapse dataset create --workspace-name synapseudacity --name ds_nycpayroll_2021 --file @'/Resources_Json/Step3_Resources/ds_nycpayroll_2021.json'
 ```
