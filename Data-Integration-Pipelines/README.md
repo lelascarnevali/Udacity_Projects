@@ -336,3 +336,35 @@ Azure CLI:
 ```
 
 <img src="images/Step2_LinkedService_All.png" alt="dimension model" width="800">
+
+## Step 3: Create Datasets in Azure Data Factory
+
+**1.Create the datasets for the 2021 Payroll file on Azure Data Lake Gen2**
+
+* Select DelimitedText
+* Set the path to the nycpayroll_2021.csv in the Data Lake
+* Preview the data to make sure it is correctly parsed
+
+***Solution***
+
+<img src="images/dataset_nycpayroll_2021.png" alt="dimension model" width="800">
+
+**2. Repeat the same process to create datasets for the rest of the data files in the Data Lake**
+
+* EmpMaster.csv
+* TitleMaster.csv
+* AgencyMaster.csv
+* Remember to publish all the datasets
+
+**3. Create the dataset for all the data tables in SQL DB**
+
+**4. Create the datasets for destination (target) table in Synapse Analytics**
+
+* dataset for NYC_Payroll_Summary
+
+*All dataset created.*
+
+Azure CLI:
+```
+  az synapse dataset create --workspace-name synapseudacity --name ds_nycpayroll_2021 --file @'/Users/leandro.ferro/Pessoal_Repositorio/Udacity_Projects/Data-Integration-Pipelines/Resources_Json/Step3_Resources/ds_nycpayroll_2021.json'
+```
