@@ -335,7 +335,7 @@ Azure CLI:
   az synapse linked-service create --workspace-name synapseudacity --name LinkedService_AzureSynapseAnalytics --file @'/Resources_Json/Step2_Resources/LinkedService_AzureSynapseAnalytics.json'
 ```
 
-<img src="images/Step2_LinkedService_All.png" alt="dimension model" width="800">
+<img src="images/Step2_LinkedService_All.png" alt="Step2_LinkedService_All" width="800">
 
 ## Step 3: Create Datasets in Azure Data Factory
 
@@ -347,7 +347,7 @@ Azure CLI:
 
 ***Solution***
 
-<img src="images/dataset_nycpayroll_2021.png" alt="dimension model" width="800">
+<img src="images/dataset_nycpayroll_2021.png" alt="dataset_nycpayroll_2021" width="800">
 
 **2. Repeat the same process to create datasets for the rest of the data files in the Data Lake**
 
