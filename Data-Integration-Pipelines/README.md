@@ -359,13 +359,13 @@ Azure CLI:
 ***Solution***
 
 *EmpMaster.csv*
-<img src="images/Dataset_EmpMaster.png" alt="dataset_EmpMaster" width="800">
+<img src="images/dataset_EmpMaster.png" alt="dataset_EmpMaster" width="800">
 
 *TitleMaster.csv*
 <img src="images/dataset_TitleMaster.png" alt="dataset_TitleMaster" width="800">
 
 *AgencyMaster.csv*
-<img src="images/Dataset_AgencyMaster.png" alt="Dataset_AgencyMaster" width="800">
+<img src="images/dataset_AgencyMaster.png" alt="dataset_AgencyMaster" width="800">
 
 **3. Create the dataset for all the data tables in SQL DB**
 
