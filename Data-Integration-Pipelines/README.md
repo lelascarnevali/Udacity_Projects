@@ -406,7 +406,7 @@ Azure CLI:
 
   az synapse dataset create --workspace-name synapseudacity --name ds_ds_synapse_NYC_Payroll_Summary --file @'/Resources_Json/Step3_Resources/ds_ds_synapse_NYC_Payroll_Summary.json'
 ```
-
+<br>
 <img src="images/dataset_all.png" alt="dataset_all" width="800">
 
 ## Step 4: Create Data Flows
