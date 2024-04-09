@@ -347,7 +347,7 @@ Azure CLI:
 
 ***Solution***
 
-<img src="images/dataset_nycpayroll_2021.png" alt="dataset_nycpayroll_2021" width="800">
+<img src="images/Step3_dataset_nycpayroll_2021.png" alt="dataset_nycpayroll_2021" width="800">
 
 **2. Repeat the same process to create datasets for the rest of the data files in the Data Lake**
 
@@ -359,13 +359,13 @@ Azure CLI:
 ***Solution***
 
 *EmpMaster.csv* <br>
-<img src="images/dataset_EmpMaster.png" alt="dataset_EmpMaster" width="800">
+<img src="images/Step3_dataset_EmpMaster.png" alt="dataset_EmpMaster" width="800">
 
 *TitleMaster.csv* <br>
-<img src="images/dataset_TitleMaster.png" alt="dataset_TitleMaster" width="800">
+<img src="images/Step3_dataset_TitleMaster.png" alt="dataset_TitleMaster" width="800">
 
 *AgencyMaster.csv* <br>
-<img src="images/dataset_AgencyMaster.png" alt="dataset_AgencyMaster" width="800">
+<img src="images/Step3_dataset_AgencyMaster.png" alt="dataset_AgencyMaster" width="800">
 
 **3. Create the dataset for all the data tables in SQL DB**
 
@@ -407,7 +407,7 @@ Azure CLI:
   az synapse dataset create --workspace-name synapseudacity --name ds_ds_synapse_NYC_Payroll_Summary --file @'/Resources_Json/Step3_Resources/ds_ds_synapse_NYC_Payroll_Summary.json'
 ```
 <br>
-<img src="images/dataset_all.png" alt="dataset_all" width="800">
+<img src="images/Step3_dataset_all.png" alt="dataset_all" width="800">
 
 ## Step 4: Create Data Flows
 
@@ -430,4 +430,10 @@ Azure CLI:
   az synapse data-flow create --workspace-name synapseudacity --name Dataflow_NYC_Payroll_Data_2021 --file @"/Resources_Json/Step4_Resources/Dataflow_NYC_Payroll_Data_2021.json"
 
   az synapse data-flow create --workspace-name synapseudacity --name Dataflow_NYC_Payroll_TITLE_MD --file @"/Resources_Json/Step4_Resources/Dataflow_NYC_Payroll_TITLE_MD.json"
+
+  az synapse data-flow create --workspace-name synapseudacity --name Dataflow_NYC_Payroll_AGENCY_MD --file @"/Resources_Json/Step4_Resources/Dataflow_NYC_Payroll_AGENCY_MD.json"
+
+  az synapse data-flow create --workspace-name synapseudacity --name Dataflow_NYC_Payroll_EMP_MD --file @"/Resources_Json/Step4_Resources/Dataflow_NYC_Payroll_EMP_MD.json"
 ```
+<br>
+<img src="images/Step4_Dataflow_all.png" alt="Step4_Dataflow_all" width="400">

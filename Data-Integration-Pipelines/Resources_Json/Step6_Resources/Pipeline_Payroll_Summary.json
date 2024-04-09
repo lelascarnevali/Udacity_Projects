@@ -1,0 +1,206 @@
+{
+  "name": "Pipeline_Payroll_Summary",
+  "properties": {
+      "activities": [
+          {
+              "name": "Data flow Agency",
+              "type": "ExecuteDataFlow",
+              "dependsOn": [],
+              "policy": {
+                  "timeout": "0.12:00:00",
+                  "retry": 0,
+                  "retryIntervalInSeconds": 30,
+                  "secureOutput": false,
+                  "secureInput": false
+              },
+              "userProperties": [],
+              "typeProperties": {
+                  "dataflow": {
+                      "referenceName": "Dataflow_NYC_Payroll_AGENCY_MD",
+                      "type": "DataFlowReference"
+                  },
+                  "compute": {
+                      "coreCount": 8,
+                      "computeType": "General"
+                  },
+                  "traceLevel": "Fine"
+              }
+          },
+          {
+              "name": "Data flow Employee",
+              "type": "ExecuteDataFlow",
+              "dependsOn": [],
+              "policy": {
+                  "timeout": "0.12:00:00",
+                  "retry": 0,
+                  "retryIntervalInSeconds": 30,
+                  "secureOutput": false,
+                  "secureInput": false
+              },
+              "userProperties": [],
+              "typeProperties": {
+                  "dataflow": {
+                      "referenceName": "Dataflow_NYC_Payroll_EMP_MD",
+                      "type": "DataFlowReference"
+                  },
+                  "compute": {
+                      "coreCount": 8,
+                      "computeType": "General"
+                  },
+                  "traceLevel": "Fine"
+              }
+          },
+          {
+              "name": "Data flow Title",
+              "type": "ExecuteDataFlow",
+              "dependsOn": [],
+              "policy": {
+                  "timeout": "0.12:00:00",
+                  "retry": 0,
+                  "retryIntervalInSeconds": 30,
+                  "secureOutput": false,
+                  "secureInput": false
+              },
+              "userProperties": [],
+              "typeProperties": {
+                  "dataflow": {
+                      "referenceName": "Dataflow_NYC_Payroll_TITLE_MD",
+                      "type": "DataFlowReference"
+                  },
+                  "compute": {
+                      "coreCount": 8,
+                      "computeType": "General"
+                  },
+                  "traceLevel": "Fine"
+              }
+          },
+          {
+              "name": "Data flow payroll 2020",
+              "type": "ExecuteDataFlow",
+              "dependsOn": [
+                  {
+                      "activity": "Data flow Agency",
+                      "dependencyConditions": [
+                          "Succeeded"
+                      ]
+                  },
+                  {
+                      "activity": "Data flow Employee",
+                      "dependencyConditions": [
+                          "Succeeded"
+                      ]
+                  },
+                  {
+                      "activity": "Data flow Title",
+                      "dependencyConditions": [
+                          "Succeeded"
+                      ]
+                  }
+              ],
+              "policy": {
+                  "timeout": "0.12:00:00",
+                  "retry": 0,
+                  "retryIntervalInSeconds": 30,
+                  "secureOutput": false,
+                  "secureInput": false
+              },
+              "userProperties": [],
+              "typeProperties": {
+                  "dataflow": {
+                      "referenceName": "Dataflow_NYC_Payroll_Data_2020",
+                      "type": "DataFlowReference"
+                  },
+                  "compute": {
+                      "coreCount": 8,
+                      "computeType": "General"
+                  },
+                  "traceLevel": "Fine"
+              }
+          },
+          {
+              "name": "Data flow payroll 2021",
+              "type": "ExecuteDataFlow",
+              "dependsOn": [
+                  {
+                      "activity": "Data flow Agency",
+                      "dependencyConditions": [
+                          "Succeeded"
+                      ]
+                  },
+                  {
+                      "activity": "Data flow Employee",
+                      "dependencyConditions": [
+                          "Succeeded"
+                      ]
+                  },
+                  {
+                      "activity": "Data flow Title",
+                      "dependencyConditions": [
+                          "Succeeded"
+                      ]
+                  }
+              ],
+              "policy": {
+                  "timeout": "0.12:00:00",
+                  "retry": 0,
+                  "retryIntervalInSeconds": 30,
+                  "secureOutput": false,
+                  "secureInput": false
+              },
+              "userProperties": [],
+              "typeProperties": {
+                  "dataflow": {
+                      "referenceName": "Dataflow_NYC_Payroll_Data_2021",
+                      "type": "DataFlowReference"
+                  },
+                  "compute": {
+                      "coreCount": 8,
+                      "computeType": "General"
+                  },
+                  "traceLevel": "Fine"
+              }
+          },
+          {
+              "name": "Data flow payroll summary",
+              "type": "ExecuteDataFlow",
+              "dependsOn": [
+                  {
+                      "activity": "Data flow payroll 2020",
+                      "dependencyConditions": [
+                          "Succeeded"
+                      ]
+                  },
+                  {
+                      "activity": "Data flow payroll 2021",
+                      "dependencyConditions": [
+                          "Succeeded"
+                      ]
+                  }
+              ],
+              "policy": {
+                  "timeout": "0.12:00:00",
+                  "retry": 0,
+                  "retryIntervalInSeconds": 30,
+                  "secureOutput": false,
+                  "secureInput": false
+              },
+              "userProperties": [],
+              "typeProperties": {
+                  "dataflow": {
+                      "referenceName": "Dataflow_Summary",
+                      "type": "DataFlowReference",
+                      "parameters": {
+                          "dataflow_param_fiscalyear": "2020"
+                      }
+                  },
+                  "compute": {
+                      "coreCount": 8,
+                      "computeType": "General"
+                  },
+                  "traceLevel": "Fine"
+              }
+          }
+      ],
+      "annotations": []
+  }
+}

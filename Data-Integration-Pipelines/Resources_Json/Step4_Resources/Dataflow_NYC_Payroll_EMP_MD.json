@@ -1,12 +1,12 @@
 {
-  "name": "Dataflow_NYC_Payroll_TITLE_MD",
+  "name": "Dataflow_NYC_Payroll_EMP_MD",
   "properties": {
       "type": "MappingDataFlow",
       "typeProperties": {
           "sources": [
               {
                   "dataset": {
-                      "referenceName": "ds_TitleMaster",
+                      "referenceName": "ds_EmpMaster",
                       "type": "DatasetReference"
                   },
                   "name": "source1"
@@ -15,7 +15,7 @@
           "sinks": [
               {
                   "dataset": {
-                      "referenceName": "ds_NYC_Payroll_TITLE_MD",
+                      "referenceName": "ds_NYC_Payroll_EMP_MD",
                       "type": "DatasetReference"
                   },
                   "name": "sink1"
@@ -24,8 +24,9 @@
           "transformations": [],
           "scriptLines": [
               "source(output(",
-              "          TitleCode as string,",
-              "          TitleDescription as string",
+              "          EmployeeID as string,",
+              "          LastName as string,",
+              "          FirstName as string",
               "     ),",
               "     allowSchemaDrift: true,",
               "     validateSchema: false,",
@@ -33,8 +34,9 @@
               "source1 sink(allowSchemaDrift: true,",
               "     validateSchema: false,",
               "     input(",
-              "          TitleCode as string,",
-              "          TitleDescription as string",
+              "          EmployeeID as string,",
+              "          LastName as string,",
+              "          FirstName as string",
               "     ),",
               "     deletable:false,",
               "     insertable:true,",
