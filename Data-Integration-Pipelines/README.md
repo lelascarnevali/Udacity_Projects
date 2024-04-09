@@ -408,3 +408,26 @@ Azure CLI:
 ```
 
 <img src="images/dataset_all.png" alt="dataset_all" width="800">
+
+## Step 4: Create Data Flows
+
+In Azure Data Factory, create data flow to load 2020 Payroll data from Azure DataLake Gen2 storage to SQL db table created earlier
+
+  1. Create a new data flow
+  2. Select the dataset for 2020 payroll file as the source
+  3. Click on the + icon at the bottom right of the source, from the options choose sink. A sink will get added in the dataflow
+  4. Select the sink dataset as 2020 payroll table created in SQL db
+Repeat the same process to add data flow to load data for each file in Azure DataLake to the corresponding SQL DB tables.
+
+***Solution***
+
+*All Data Flows created.*
+
+Azure CLI:
+```
+  az synapse data-flow create --workspace-name synapseudacity --name Dataflow_NYC_Payroll_Data_2020 --file @"/Resources_Json/Step4_Resources/Dataflow_NYC_Payroll_Data_2020.json"
+
+  az synapse data-flow create --workspace-name synapseudacity --name Dataflow_NYC_Payroll_Data_2021 --file @"/Resources_Json/Step4_Resources/Dataflow_NYC_Payroll_Data_2021.json"
+
+  az synapse data-flow create --workspace-name synapseudacity --name Dataflow_NYC_Payroll_TITLE_MD --file @"/Resources_Json/Step4_Resources/Dataflow_NYC_Payroll_TITLE_MD.json"
+```
