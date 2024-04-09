@@ -382,7 +382,29 @@ See below
 
 Azure CLI:
 ```
+  az synapse dataset create --workspace-name synapseudacity --name ds_nycpayroll_2020 --file @'/Resources_Json/Step3_Resources/ds_nycpayroll_2020.json'
+
   az synapse dataset create --workspace-name synapseudacity --name ds_nycpayroll_2021 --file @'/Resources_Json/Step3_Resources/ds_nycpayroll_2021.json'
+
+  az synapse dataset create --workspace-name synapseudacity --name ds_TitleMaster --file @'/Resources_Json/Step3_Resources/ds_TitleMaster.json'
+
+  az synapse dataset create --workspace-name synapseudacity --name ds_EmpMaster --file @'/Resources_Json/Step3_Resources/ds_EmpMaster.json'
+
+  az synapse dataset create --workspace-name synapseudacity --name ds_AgencyMaster --file @'/Resources_Json/Step3_Resources/ds_AgencyMaster.json'
+
+  az synapse dataset create --workspace-name synapseudacity --name ds_NYC_Payroll_Data_2020 --file @'/Resources_Json/Step3_Resources/ds_NYC_Payroll_Data_2020.json'
+
+  az synapse dataset create --workspace-name synapseudacity --name ds_NYC_Payroll_Data_2021 --file @'/Resources_Json/Step3_Resources/ds_NYC_Payroll_Data_2021.json'
+
+  az synapse dataset create --workspace-name synapseudacity --name ds_NYC_Payroll_AGENCY_MD --file @'/Resources_Json/Step3_Resources/ds_NYC_Payroll_AGENCY_MD.json'
+
+  az synapse dataset create --workspace-name synapseudacity --name ds_NYC_Payroll_EMP_MD --file @'/Resources_Json/Step3_Resources/ds_NYC_Payroll_EMP_MD.json'
+
+  az synapse dataset create --workspace-name synapseudacity --name ds_NYC_Payroll_TITLE_MD --file @'/Resources_Json/Step3_Resources/ds_NYC_Payroll_TITLE_MD.json'
+
+  az synapse dataset create --workspace-name synapseudacity --name ds_NYC_Payroll_Summary --file @'/Resources_Json/Step3_Resources/ds_NYC_Payroll_Summary.json'
+
+  az synapse dataset create --workspace-name synapseudacity --name ds_ds_synapse_NYC_Payroll_Summary --file @'/Resources_Json/Step3_Resources/ds_ds_synapse_NYC_Payroll_Summary.json'
 ```
 
 <img src="images/dataset_all.png" alt="dataset_all" width="800">
