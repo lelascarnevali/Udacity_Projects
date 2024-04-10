@@ -504,4 +504,5 @@ We will create a pipeline to load data from Azure DataLake Gen2 storage in SQL d
 <br>
 [Execution Log](logs/synapseudacity_Activity%20runs.csv)
 <br>
+<br>
 <img src="images/Step7_trigger_run.png" alt="Step7_trigger_run" width="1200">
