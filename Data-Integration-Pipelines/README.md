@@ -465,10 +465,30 @@ In this step, you'll extract the 2021 year data and historical data, merge, aggr
     a. Select the sink as dirstaging in Azure DataLake Gen2 storage<br>
     b. In Settings, tick Clear the folder<br>
 
-  ***Solution***
+***Solution***
 <br>
 ```
   az synapse data-flow create --workspace-name synapseudacity --name Dataflow_Summary --file @"/Resources_Json/Step5_Resources/Dataflow_Summary.json"
 ```
 <br>
 <img src="images/Step5_dataflow_summary.png" alt="Step5_dataflow_summary" width="1200">
+
+## Step 6: Pipeline Creation
+
+Now, that you have the data flows created it is time to bring the pieces together and orchestrate the flow.
+
+We will create a pipeline to load data from Azure DataLake Gen2 storage in SQL db for individual datasets, perform aggregations and store the summary results back into SQL db destination table and datalake staging storage directory which will be consumed by Synapse Analytics via CETAS.
+
+  1. Create a new pipeline
+  2. Include dataflows for Agency, Employee and Title to be parallel
+  3. Add dataflows for payroll 2020 and payroll 2021. These should run only after the initial 3 dataflows have completed
+  4. After payroll 2020 and payroll 2021 dataflows have completed, dataflow for aggregation should be started.
+  5. Refer to the below screenshot. Your final pipeline should look like this
+
+***Solution***
+<br>
+```
+  az synapse pipeline create --workspace-name synapseudacity --name Pipeline_Payroll_Summary --file @"/Resources_Json/Step6_Resources/Pipeline_Payroll_Summary.json"
+```
+<br>
+<img src="images/Step6_pipeline.png" alt="Step6_pipeline" width="1200">
