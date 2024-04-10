@@ -1,0 +1,7 @@
+"Activity name","Activity status","Error","Activity type","Run start","Duration","Integration runtime","User properties","Activity run ID","Log"
+"Data flow payroll summary","Succeeded","","ExecuteDataFlow","4/9/2024, 4:42:33 PM","32s","AutoResolveIntegrationRuntime (East US)","{}","8c03beb1-2737-4a2f-9d6e-f351e2f93b69",""
+"Data flow payroll 2021","Succeeded","","ExecuteDataFlow","4/9/2024, 4:42:17 PM","15s","AutoResolveIntegrationRuntime (East US)","{}","8045ce4c-6a23-4aa0-be94-d689940fc467",""
+"Data flow payroll 2020","Succeeded","","ExecuteDataFlow","4/9/2024, 4:42:17 PM","13s","AutoResolveIntegrationRuntime (East US)","{}","e621f05f-6055-464c-8d12-7c08cf8863c8",""
+"Data flow Employee","Succeeded","","ExecuteDataFlow","4/9/2024, 4:37:52 PM","4m 4s","AutoResolveIntegrationRuntime (East US)","{}","8f1e4ffc-3072-492c-ad0f-48fb9556e2d4",""
+"Data flow Agency","Succeeded","","ExecuteDataFlow","4/9/2024, 4:37:52 PM","3m 55s","AutoResolveIntegrationRuntime (East US)","{}","ff7249e9-1cae-4add-b285-9e8aec304926",""
+"Data flow Title","Succeeded","","ExecuteDataFlow","4/9/2024, 4:37:52 PM","4m 24s","AutoResolveIntegrationRuntime (East US)","{}","dc2c5411-307f-4aa0-b7b2-508b854af8f0",""

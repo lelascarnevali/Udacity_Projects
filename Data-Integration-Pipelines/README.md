@@ -409,7 +409,7 @@ Azure CLI:
   az synapse dataset create --workspace-name synapseudacity --name ds_dirstaging --file @'/Resources_Json/Step3_Resources/ds_dirstaging.json'
 ```
 <br>
-<img src="images/Step3_dataset_all.png" alt="dataset_all" width="800">
+<img src="images/Step3_dataset_all.png" alt="dataset_all" width="1200">
 
 ## Step 4: Create Data Flows
 
@@ -438,7 +438,7 @@ Azure CLI:
   az synapse data-flow create --workspace-name synapseudacity --name Dataflow_NYC_Payroll_EMP_MD --file @"/Resources_Json/Step4_Resources/Dataflow_NYC_Payroll_EMP_MD.json"
 ```
 <br>
-<img src="images/Step4_dataflow_all.png" alt="Step4_dataflow_all" width="800">
+<img src="images/Step4_dataflow_all.png" alt="Step4_dataflow_all" width="1200">
 
 ## Step 5: Data Aggregation and Parameterization
 
@@ -492,3 +492,16 @@ We will create a pipeline to load data from Azure DataLake Gen2 storage in SQL d
 ```
 <br>
 <img src="images/Step6_pipeline.png" alt="Step6_pipeline" width="1200">
+
+## Step 7: Trigger and Monitor Pipeline
+
+  1. Select Add trigger option from pipeline view in the toolbar
+  2. Choose trigger now to initiate pipeline run
+  3. You can go to monitor tab and check the Pipeline Runs
+  4. Each dataflow will have an entry in Activity runs list
+
+***Solution***
+<br>
+[Execution Log](logs/synapseudacity_Activity runs.csv)
+<br>
+<img src="images/Step7_trigger_run.png" alt="Step7_trigger_run" width="1200">
