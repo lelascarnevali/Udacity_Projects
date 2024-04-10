@@ -438,7 +438,7 @@ Azure CLI:
   az synapse data-flow create --workspace-name synapseudacity --name Dataflow_NYC_Payroll_EMP_MD --file @"/Resources_Json/Step4_Resources/Dataflow_NYC_Payroll_EMP_MD.json"
 ```
 <br>
-<img src="images/Step4_dataflow_all.png" alt="Step4_dataflow_all" width="400">
+<img src="images/Step4_dataflow_all.png" alt="Step4_dataflow_all" width="800">
 
 ## Step 5: Data Aggregation and Parameterization
 
@@ -471,4 +471,4 @@ In this step, you'll extract the 2021 year data and historical data, merge, aggr
   az synapse data-flow create --workspace-name synapseudacity --name Dataflow_Summary --file @"/Resources_Json/Step5_Resources/Dataflow_Summary.json"
 ```
 <br>
-<img src="images/Step5_dataflow_summary.png" alt="Step5_dataflow_summary" width="400">
+<img src="images/Step5_dataflow_summary.png" alt="Step5_dataflow_summary" width="800">
