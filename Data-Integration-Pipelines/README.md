@@ -506,3 +506,23 @@ We will create a pipeline to load data from Azure DataLake Gen2 storage in SQL d
 <br>
 <br>
 <img src="images/Step7_trigger_run.png" alt="Step7_trigger_run" width="1200">
+
+## Step 8: Verify Pipeline run artifacts
+
+  1. Query data in SQL DB summary table (destination table). This is one of the sinks defined in the pipeline.
+
+***Solution***
+<br>
+<img src="images/Step8_query_sql_table.png" alt="Step8_query_sql_table" width="800">
+
+  2. Check the dirstaging directory in Datalake if files got created. This is one of the sinks defined in the pipeline
+
+***Solution***
+<br>
+<img src="images/Step8_files_created.png" alt="Step8_files_created" width="800">
+
+  3. Query data in Synapse external table that points to the dirstaging directory in Datalake
+
+***Solution***
+<br>
+<img src="images/Step8_query_synapse_external_table.png" alt="Step8_query_synapse_external_table" width="800">
