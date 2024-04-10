@@ -444,26 +444,26 @@ Azure CLI:
 
 In this step, you'll extract the 2021 year data and historical data, merge, aggregate and store it in DataLake staging area which will be used by Synapse Analytics external table. The aggregation will be on Agency Name, Fiscal Year and TotalPaid.
 
-  1. Create new data flow and name it Dataflow Summary
-  2. Add source as payroll 2020 data from SQL DB
-  3. Add another source as payroll 2021 data from SQL DB
-  4. Create a new Union activity and select both payroll datasets as the source
-  5. Make sure to do any source to target mappings if required. This can be done by adding a Select activity before Union
-  6. After Union, add a Filter activity, go to Expression builder
-    a. Create a parameter named- dataflow_param_fiscalyear and give value 2020 or 2021
-    b. Include expression to be used for filtering: toInteger(FiscalYear) >= $dataflow_param_fiscalyear
-  7. Now, choose Derived Column after filter
-    a. Name the column: TotalPaid
-    b. Add following expression: RegularGrossPaid + TotalOTPaid+TotalOtherPay
-  8. Add an Aggregate activity to the data flow next to the TotalPaid activity
-    a. Under Group by, select AgencyName and FiscalYear
-    b. Set the expression to sum(TotalPaid)
-  9. Add a Sink activity after the Aggregate
-    a. Select the sink as summary table created in SQL db
-    b. In Settings, tick Truncate table
-  10. Add another Sink activity, this will create two sinks after Aggregate
-    a. Select the sink as dirstaging in Azure DataLake Gen2 storage
-    b. In Settings, tick Clear the folder
+  1. Create new data flow and name it Dataflow Summary<br>
+  2. Add source as payroll 2020 data from SQL DB<br>
+  3. Add another source as payroll 2021 data from SQL DB<br>
+  4. Create a new Union activity and select both payroll datasets as the source<br>
+  5. Make sure to do any source to target mappings if required. This can be done by adding a Select activity before Union<br>
+  6. After Union, add a Filter activity, go to Expression builder<br>
+    a. Create a parameter named- dataflow_param_fiscalyear and give value 2020 or 2021<br>
+    b. Include expression to be used for filtering: toInteger(FiscalYear) >= $dataflow_param_fiscalyear<br>
+  7. Now, choose Derived Column after filter<br>
+    a. Name the column: TotalPaid<br>
+    b. Add following expression: RegularGrossPaid + TotalOTPaid+TotalOtherPay<br>
+  8. Add an Aggregate activity to the data flow next to the TotalPaid activity<br>
+    a. Under Group by, select AgencyName and FiscalYear<br>
+    b. Set the expression to sum(TotalPaid)<br>
+  9. Add a Sink activity after the Aggregate<br>
+    a. Select the sink as summary table created in SQL db<br>
+    b. In Settings, tick Truncate table<br>
+  10. Add another Sink activity, this will create two sinks after Aggregate<br>
+    a. Select the sink as dirstaging in Azure DataLake Gen2 storage<br>
+    b. In Settings, tick Clear the folder<br>
 
   ***Solution***
 <br>
