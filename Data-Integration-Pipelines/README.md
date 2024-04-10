@@ -471,4 +471,4 @@ In this step, you'll extract the 2021 year data and historical data, merge, aggr
   az synapse data-flow create --workspace-name synapseudacity --name Dataflow_Summary --file @"/Resources_Json/Step5_Resources/Dataflow_Summary.json"
 ```
 <br>
-<img src="images/Step5_dataflow_summary.png" alt="Step5_dataflow_summary" width="800">
+<img src="images/Step5_dataflow_summary.png" alt="Step5_dataflow_summary" width="1200">
