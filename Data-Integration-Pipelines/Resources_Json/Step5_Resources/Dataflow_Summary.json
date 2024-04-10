@@ -26,6 +26,13 @@
                       "type": "DatasetReference"
                   },
                   "name": "payrollsummary"
+              },
+              {
+                  "dataset": {
+                      "referenceName": "ds_dirstaging",
+                      "type": "DatasetReference"
+                  },
+                  "name": "payrollsummarygen2"
               }
           ],
           "transformations": [
@@ -45,7 +52,7 @@
                   "name": "TotalPaid"
               },
               {
-                  "name": "aggregate1"
+                  "name": "aggregate"
               }
           ],
           "scriptLines": [
@@ -151,10 +158,10 @@
               "selectpayroll2020, selectpayroll2021 union(byName: true)~> union",
               "union filter(toInteger(FiscalYear) >= $dataflow_param_fiscalyear) ~> filter",
               "filter derive(TotalPaid = RegularGrossPaid + TotalOTPaid+TotalOtherPay) ~> TotalPaid",
-              "TotalPaid aggregate(groupBy(AgencyID,",
-              "          FiscalYear),",
-              "     TotalPaid = sum(TotalPaid)) ~> aggregate1",
-              "aggregate1 sink(allowSchemaDrift: true,",
+              "TotalPaid aggregate(groupBy(FiscalYear,",
+              "          AgencyName),",
+              "     TotalPaid = sum(TotalPaid)) ~> aggregate",
+              "aggregate sink(allowSchemaDrift: true,",
               "     validateSchema: false,",
               "     input(",
               "          FiscalYear as integer,",
@@ -169,7 +176,16 @@
               "     format: 'table',",
               "     skipDuplicateMapInputs: true,",
               "     skipDuplicateMapOutputs: true,",
-              "     errorHandlingOption: 'stopOnFirstError') ~> payrollsummary"
+              "     errorHandlingOption: 'stopOnFirstError') ~> payrollsummary",
+              "aggregate sink(allowSchemaDrift: true,",
+              "     validateSchema: false,",
+              "     partitionFileNames:['Payroll_Summary.csv'],",
+              "     umask: 0777,",
+              "     preCommands: [],",
+              "     postCommands: [],",
+              "     skipDuplicateMapInputs: true,",
+              "     skipDuplicateMapOutputs: true,",
+              "     partitionBy('hash', 1)) ~> payrollsummarygen2"
           ]
       }
   }

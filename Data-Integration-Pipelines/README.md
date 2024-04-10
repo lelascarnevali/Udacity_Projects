@@ -405,6 +405,8 @@ Azure CLI:
   az synapse dataset create --workspace-name synapseudacity --name ds_NYC_Payroll_Summary --file @'/Resources_Json/Step3_Resources/ds_NYC_Payroll_Summary.json'
 
   az synapse dataset create --workspace-name synapseudacity --name ds_ds_synapse_NYC_Payroll_Summary --file @'/Resources_Json/Step3_Resources/ds_ds_synapse_NYC_Payroll_Summary.json'
+
+  az synapse dataset create --workspace-name synapseudacity --name ds_dirstaging --file @'/Resources_Json/Step3_Resources/ds_dirstaging.json'
 ```
 <br>
 <img src="images/Step3_dataset_all.png" alt="dataset_all" width="800">
@@ -436,4 +438,37 @@ Azure CLI:
   az synapse data-flow create --workspace-name synapseudacity --name Dataflow_NYC_Payroll_EMP_MD --file @"/Resources_Json/Step4_Resources/Dataflow_NYC_Payroll_EMP_MD.json"
 ```
 <br>
-<img src="images/Step4_Dataflow_all.png" alt="Step4_Dataflow_all" width="400">
+<img src="images/Step4_dataflow_all.png" alt="Step4_dataflow_all" width="400">
+
+## Step 5: Data Aggregation and Parameterization
+
+In this step, you'll extract the 2021 year data and historical data, merge, aggregate and store it in DataLake staging area which will be used by Synapse Analytics external table. The aggregation will be on Agency Name, Fiscal Year and TotalPaid.
+
+  1. Create new data flow and name it Dataflow Summary
+  2. Add source as payroll 2020 data from SQL DB
+  3. Add another source as payroll 2021 data from SQL DB
+  4. Create a new Union activity and select both payroll datasets as the source
+  5. Make sure to do any source to target mappings if required. This can be done by adding a Select activity before Union
+  6. After Union, add a Filter activity, go to Expression builder
+    a. Create a parameter named- dataflow_param_fiscalyear and give value 2020 or 2021
+    b. Include expression to be used for filtering: toInteger(FiscalYear) >= $dataflow_param_fiscalyear
+  7. Now, choose Derived Column after filter
+    a. Name the column: TotalPaid
+    b. Add following expression: RegularGrossPaid + TotalOTPaid+TotalOtherPay
+  8. Add an Aggregate activity to the data flow next to the TotalPaid activity
+    a. Under Group by, select AgencyName and FiscalYear
+    b. Set the expression to sum(TotalPaid)
+  9. Add a Sink activity after the Aggregate
+    a. Select the sink as summary table created in SQL db
+    b. In Settings, tick Truncate table
+  10. Add another Sink activity, this will create two sinks after Aggregate
+    a. Select the sink as dirstaging in Azure DataLake Gen2 storage
+    b. In Settings, tick Clear the folder
+
+  ***Solution***
+<br>
+```
+  az synapse data-flow create --workspace-name synapseudacity --name Dataflow_Summary --file @"/Resources_Json/Step5_Resources/Dataflow_Summary.json"
+```
+<br>
+<img src="images/Step5_dataflow_summary.png" alt="Step5_dataflow_summary" width="400">

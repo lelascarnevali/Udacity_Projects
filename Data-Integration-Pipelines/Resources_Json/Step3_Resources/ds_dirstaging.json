@@ -1,0 +1,23 @@
+{
+  "name": "ds_dirstaging",
+  "properties": {
+      "linkedServiceName": {
+          "referenceName": "LinkedService_AzureDataLakeStorage",
+          "type": "LinkedServiceReference"
+      },
+      "annotations": [],
+      "type": "DelimitedText",
+      "typeProperties": {
+          "location": {
+              "type": "AzureBlobFSLocation",
+              "folderPath": "dirstaging",
+              "fileSystem": "dataengudacity"
+          },
+          "columnDelimiter": ",",
+          "escapeChar": "\\",
+          "firstRowAsHeader": false,
+          "quoteChar": "\""
+      },
+      "schema": []
+  }
+}
